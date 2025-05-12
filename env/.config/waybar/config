@@ -1,0 +1,50 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "pulseaudio",
+    "battery",
+    "cpu",
+    "memory",
+    "tray",
+    "custom/lock"
+  ],
+
+  "sway/workspaces": {
+    "format": "{name}"
+  },
+
+  "clock": {
+    "format": "{:%H:%M  |  %a %b %d}"
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": " muted",
+    "on-click": "pavucontrol"
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "cpu": {
+    "format": " {usage}%"
+  },
+
+  "memory": {
+    "format": " {used:0.1f}G / {total:0.1f}G",
+    "interval": 5
+  },
+
+  "custom/lock": {
+    "format": "",
+    "tooltip": "Lock Screen",
+    "on-click": "sh -c '(sleep 0.2s; swaylock -f --image ~/.config/swaylock/bg.jpg --scaling fill --indicator-radius 120 --indicator-thickness 10 --ring-color 5c6370 --ring-ver-color 61afef --ring-wrong-color e06c75 --inside-color 282c34 --inside-ver-color 282c34 --inside-wrong-color 282c34 --line-color 282c34 --line-ver-color 61afef --line-wrong-color e06c75 --text-color ffffff --text-ver-color ffffff --text-wrong-color ffffff --separator-color 282c34 --show-failed-attempts)' & disown"
+
+  }
+}
+

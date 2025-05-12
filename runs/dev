@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+sudo dnf --assumeyes install sway swaybg wofi
+sudo dnf --assumeyes install neovim
+sudo dnf --assumeyes install waybar jetbrains-mono-fonts google-noto-sans-mono-fonts fontawesome-fonts pavucontrol
+
+# Browser
+sudo dnf --assumeyes copr enable sneexy/zen-browser
+sudo dnf --assumeyes install zen-browser
+
+sudo dnf --assumeyes install NetworkManager NetworkManager-tui NetworkManager-wifi nm-connection-editor nm-applet xdg-desktop-portal-wlr
+sudo systemctl enable --now NetworkManager
+
+sudo dnf --assumeyes copr enable pgdev/ghostty
+sudo dnf --assumeyes install ghostty
+
+sudo dnf --assumeyes install tldr fzf btop
+sudo dnf --assumeyes install ripgrep

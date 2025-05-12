@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+
+if [[ -z "${DEV_ENV:-}" ]]; then
+    echo "Error: environment variable DEV_ENV must be set."
+    exit 1
+fi
+
+dry_run=false
+grep_filter=""
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --dry)
+            dry_run=true
+            ;;
+        *)
+            grep_filter="$1"
+            ;;
+    esac
+    shift
+done
+
+log() {
+    if $dry_run; then
+        echo "[DRY_RUN] $1"
+    else
+        echo "$1"
+    fi
+}
+
+log "RUN: DEV_ENV: $DEV_ENV | Filter: \"$grep_filter\""
+
+while IFS= read -r -d '' script; do
+    script_name="$(basename "$script")"
+    if [[ -n "$grep_filter" && ! "$script_name" =~ $grep_filter ]]; then
+        log "Filtered out: $script_name"
+        continue
+    fi
+
+    log "Running: $script_name"
+    if ! $dry_run; then
+        "$script"
+    fi
+done < <(find "$script_dir/runs" -mindepth 1 -maxdepth 1 -executable -print0)
+

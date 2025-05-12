@@ -1,0 +1,32 @@
+* {
+  font-family: "JetBrains Mono", "Noto Sans Mono", "Font Awesome 6 Free", sans-serif;
+  font-size: 12px;
+  padding: 0 8px;
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background-color: rgba(20, 20, 20, 0.7); /* More subtle semi-transparent */
+  color: #e0e0e0;
+}
+
+#workspaces button {
+  background: transparent;
+  color: #888;
+}
+
+#workspaces button.focused {
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 2px solid #fff;
+}
+
+#clock, #pulseaudio, #battery, #network, #cpu, #memory, #tray, #custom-lock {
+  margin: 0 6px;
+}
+
+#tray {
+  padding-right: 6px;
+}
+
