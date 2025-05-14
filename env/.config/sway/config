@@ -18,7 +18,6 @@ set $term ghostty
 # Your preferred application launcher
 set $menu wofi --show drun
 
-
 # Waybar
 exec waybar
 
@@ -65,8 +64,11 @@ output * bg  ~/.config/swaylock/bg.jpg fill
 # Read `man 5 sway-input` for more information about this section.
 
 input * {
-    xkb_layout "de"
+    xkb_layout "de",
 }
+
+# Turn on numpad on start
+input type:keyboard xkb_numlock on
 
 ### Key bindings
 #

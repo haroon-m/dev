@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo dnf --assumeyes install sway swaybg wofi
+sudo dnf --assumeyes install sway swaybg wofi 
 sudo dnf --assumeyes install neovim
 sudo dnf --assumeyes install waybar jetbrains-mono-fonts google-noto-sans-mono-fonts fontawesome-fonts pavucontrol
 
