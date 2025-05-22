@@ -9,6 +9,8 @@ sudo dnf --assumeyes install kitty
 # starship
 curl -sS https://starship.rs/install.sh | sh
 
+sudo dnf --assumeyes install age
+
 # Browser
 sudo dnf --assumeyes copr enable sneexy/zen-browser
 sudo dnf --assumeyes install zen-browser
