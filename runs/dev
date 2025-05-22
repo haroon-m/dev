@@ -6,6 +6,8 @@ sudo dnf --assumeyes install waybar jetbrains-mono-fonts google-noto-sans-mono-f
 
 
 sudo dnf --assumeyes install kitty 
+# starship
+curl -sS https://starship.rs/install.sh | sh
 
 # Browser
 sudo dnf --assumeyes copr enable sneexy/zen-browser
