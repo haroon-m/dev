@@ -1,16 +1,21 @@
 #!/usr/bin/env bash
 dry_run="0"
 
-if [ -z "$XDG_CONFIG_HOME" ]; then
-    echo "no xdg config home"
-    echo "using ~/.config"
-    XDG_CONFIG_HOME=$HOME/.config
+if [ ! -f $(pwd)/dev_env_marker ]; then
+	echo "dev_env_makrer not found"
+	echo "navigate to dev repo"
+	exit 1
 fi
 
 # should be dev
 if [ -z "$DEV_ENV" ]; then
-    echo "env var DEV_ENV needs to be present"
+    echo "usage: DEV_ENV=\$(pwd) $0 (--dry)"
     exit 1
+fi
+
+if [ -z "$XDG_CONFIG_HOME" ]; then
+    echo "using ~/.config"
+    XDG_CONFIG_HOME=$HOME/.config
 fi
 
 if [[ $1 == "--dry" ]]; then
@@ -63,8 +68,6 @@ copy() {
 
 update_files $DEV_ENV/env/.config $XDG_CONFIG_HOME
 
-copy $DEV_ENV/env/.zsh_profile $HOME/.zsh_profile
-copy $DEV_ENV/env/.zshrc $HOME/.zshrc
-copy $DEV_ENV/env/.xprofile $HOME/.xprofile
+# Now is a good time to use age and decrypt files to final location
+#copy $DEV_ENV/env/.bashrc $HOME/.bashrc
 
-hyprctl reload

@@ -5,7 +5,7 @@ set -euo pipefail
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 
 if [[ -z "${DEV_ENV:-}" ]]; then
-    echo "Error: environment variable DEV_ENV must be set."
+    echo "usage: DEV_ENV=xyz $0 (--dry)"
     exit 1
 fi
 
