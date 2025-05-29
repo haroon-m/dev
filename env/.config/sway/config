@@ -79,6 +79,9 @@ input "1267:13:hid-over-i2c_04F3:000D_Keyboard" {
     xkb_layout "us"
 }
 
+# title bar
+default_border pixel
+
 ### Key bindings
 #
 # Basics:
