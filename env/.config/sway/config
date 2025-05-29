@@ -70,6 +70,15 @@ input * {
 # Turn on numpad on start
 input type:keyboard xkb_numlock on
 
+# X13s related config
+input "1267:12691:hid-over-i2c_04F3:3193_Touchpad" {
+    natural_scroll enabled
+}
+
+input "1267:13:hid-over-i2c_04F3:000D_Keyboard" {
+    xkb_layout "us"
+}
+
 ### Key bindings
 #
 # Basics:
